@@ -30,11 +30,15 @@
   </nav>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "adminNavbar",
   created() {
     const location = this.$route.path.split("/")[2];
     this.setCurrentLocation(location);
+  },
+  computed: {
+    ...mapState(["currentUser", "isAuthenticated"]),
   },
   data() {
     return {
